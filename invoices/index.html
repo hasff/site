@@ -54,6 +54,40 @@
 		background:#fafafa;
 	}
 
+
+	.techbox{
+		background:#f5f7fb;
+		border-radius:10px;
+		padding:22px 24px;
+		margin-top:50px;
+		border:1px solid #e2e6ef;
+	}
+
+	.techbox h2{
+		margin-top:0;
+	}
+
+	.techlist{
+		margin:15px 0 20px 18px;
+	}
+
+	.techlist li{
+		margin:6px 0;
+	}
+
+	.repo-link{
+		display:inline-block;
+		margin-top:10px;
+		text-decoration:none;
+		font-weight:bold;
+		color:#2f6fed;
+	}
+
+	.repo-link:hover{
+		text-decoration:underline;
+	}
+
+
 	.course-title{
 		font-size:20px;
 		font-weight:bold;
@@ -78,7 +112,6 @@
 		background:#e0a700;
 	}
 
-
 	</style>
 </head>
 <body>
@@ -99,7 +132,7 @@
 	<img src="../assets/images/invoice1/invoice1.jpg" alt="Automatically generated invoice example">
 
 	<p><i>Example of a multi-page invoice automatically generated in Python.</i></p>
-	
+
 	
 	<h2>Common situations I help with</h2>
 
@@ -133,6 +166,37 @@
 		<li>I connect it to your data source</li>
 		<li>Your invoices start generating automatically</li>
 	</ol>
+
+	<div class="techbox">
+
+		<h2>Technical details</h2>
+
+		<p>
+		This invoice system is generated programmatically using Python and ReportLab.
+		The layout is deterministic (not HTML rendering), allowing reliable output
+		regardless of environment or operating system.
+		</p>
+
+		<ul class="techlist">
+			<li>Fully code-driven PDF layout</li>
+			<li>No HTML-to-PDF rendering engines</li>
+			<li>Supports batch generation</li>
+			<li>Suitable for background jobs / workers</li>
+			<li>Designed for integration with databases, APIs, or Excel imports</li>
+		</ul>
+
+		<p>
+		You can see the implementation approach and project structure here:
+		</p>
+
+		<a class="repo-link"
+		href="https://github.com/hasff/python-invoice-pdf-generator"
+		target="_blank">
+		View implementation on GitHub →
+		</a>
+
+	</div>
+
 	
 	<div class="section">
 		<h2>Contact</h2>
