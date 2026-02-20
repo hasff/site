@@ -53,10 +53,10 @@
                <span>Hugo Ferro</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#examples">Examples</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#examples" class="nav-link" aria-label="Menu: Examples">Examples</a></li>
+                <li><a href="#courses" class="nav-link" aria-label="Menu: Courses">Courses</a></li>
+                <li><a href="#products" class="nav-link" aria-label="Menu: Products">Products</a></li>
+                <li><a href="#contact" class="nav-link" aria-label="Menu: Contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -75,15 +75,15 @@
                     <p>I built this so you don't have to suffer. After months of deep-diving into obscure documentation, here is a <strong>pixel-perfect</strong> multi-page engine. A direct preview of the logic I teach in my courses.</p>
                   </div>
                   <div class="card-image">
-                      <a href="assets/pdfs/invoice_sample1.pdf" target="_blank" class="view-link">
+                      <a href="assets/pdfs/invoice_sample1.pdf" target="_blank" class="view-link cta-button" aria-label="Python Invoice PDF Generator (Example 1): View PDF from Image" >
                         <img src="assets/imgs/python-reportlab-invoice-example1.jpg" alt="Professional Invoice PDF generated with Python ReportLab">
                       </a>
                   </div>                
                 </div>
                   <div class="card-links">
-                      <a href="assets/pdfs/invoice_sample1.pdf" target="_blank" class="view-link">View PDF</a>
+                      <a href="assets/pdfs/invoice_sample1.pdf" target="_blank" class="view-link" aria-label="Python Invoice PDF Generator (Example 1): View PDF from Button">View PDF</a>
                       <span class="separator">|</span> 
-                      <a href="https://github.com/hasff/python-invoice-pdf-generator" target="_blank" class="view-link">View Code</a>
+                      <a href="https://github.com/hasff/python-invoice-pdf-generator" target="_blank" class="view-link" aria-label="Python Invoice PDF Generator (Example 1): View Code">View Code</a>
                   </div>
               </div>                        
             </div>            
@@ -158,7 +158,7 @@
                         <p class="personal-note"><em>"Built for developers who need invoices that behave predictably in production."</em></p>
                     </div>
 
-                    <a href="https://alltech.gumroad.com/l/agvoio" target="_blank" class="cta-gumroad">
+                    <a href="https://alltech.gumroad.com/l/agvoio" target="_blank" class="cta-gumroad" aria-label="Multi-Page Invoice Generator (Pro): Get the Source Code on Gumroad">
                         Get the Source Code on Gumroad
                     </a>
                 </div>
@@ -170,7 +170,7 @@
                         <p>If you have a unique PDF challenge or need a specific template that isn't listed here, I'm happy to help.</p>
                         <p>Whether it's a quick question or a custom project, let's see if we can work together to solve it.</p>
                     </div>
-                    <a href="#contact" class="cta-button" style="margin-top: 20px;">Send me a message</a>
+                    <a href="#contact" class="cta-button" style="margin-top: 20px;" aria-label="Need a specific solution?: Send me a message">Send me a message</a>
                 </div>                
             </div>
         </section>        
@@ -179,7 +179,7 @@
             <h1>Get in Touch</h1>
             <p>Have a question about a course or product? Let's talk.</p>
             <div class="contact-box">
-                <a href="mailto:hugoferro.business@gmail.com" class="cta-button">Send me an Email</a>
+                <a href="mailto:hugoferro.business@gmail.com" class="cta-button" aria-label="Get in Touch: Send me an Email">Send me an Email</a>
             </div>
         </section>
     </main>
@@ -190,49 +190,74 @@
         <p>&copy; 2026 Hugo Ferro. All rights reserved.</p>
     </footer>
 
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // --- CONFIGURATION: Only update the 'code' variable ---
+        const COURSES_DATA = {
+            reportlab: {
+                code: "FEB_2026_2", // Current coupon code
+                baseUrl: "https://www.udemy.com/course/python-reportlab-from-beginner-to-winner/",
+                referralCode: "3B927E883D2E868CF221"
+            },
+            pymupdf: {
+                code: "DFB6B5FA2A62894CE77F", // Current coupon code
+                baseUrl: "https://www.udemy.com/course/python-pdf-handling-from-beginner-to-winner/",
+                referralCode: "E7B71DCA8314B0BAC4BD"
+            }
+        };
+
+        for (const [id, course] of Object.entries(COURSES_DATA)) {
+            const container = document.getElementById(`btn-${id}`);
+            if (!container) continue;
+
+            // Logic: If code exists, build coupon link. Else, build referral link.
+            const finalLink = course.code 
+                ? `${course.baseUrl}?couponCode=${course.code}` 
+                : `${course.baseUrl}?referralCode=${course.referralCode}`;
+
+            if (course.code) {
+                container.innerHTML = `
+                    <div class="coupon-area">
+                        <span class="coupon-label">Special Offer Active!</span>
+                        <a href="${finalLink}" target="_blank" class="cta-udemy promo" aria-label="Udemy Course ${id}: coupon ${course.code}">
+                            Enroll with Discount (Code: ${course.code})
+                        </a>
+                    </div>`;
+            } else {
+                container.innerHTML = `
+                    <a href="${finalLink}" target="_blank" class="cta-udemy" aria-label="Udemy Course ${id}: referral link">
+                        Enroll on Udemy
+                    </a>`;
+            }
+        }
+
+
+        document.querySelectorAll('.cta-udemy, .cta-button, .cta-gumroad, .view-link, .nav-link').forEach(button => {
+            button.addEventListener('click', function() {
+                const buttonText = this.getAttribute('aria-label') || this.innerText.trim() || 'No Text Link';
+                const targetUrl = this.href;
+
+                // Envia o evento para o Google Analytics
+                if (typeof gtag === 'function') {
+                    gtag('event', 'purchase_intent', {
+                        'event_category': 'conversion',
+                        'event_label': buttonText,
+                        'destination_url': targetUrl,
+                        'platform': targetUrl.includes('udemy') ? 'Udemy' : (targetUrl.includes('gumroad') ? 'Gumroad' : 'Other')
+                    });
+                    console.log('Evento enviado para GA4: ' + buttonText);
+                }
+            });
+        });
+    });
+    </script>
+
 </body>
 </html>
 <script>
-// --- CONFIGURATION: Only update the 'code' variable ---
-const COURSES_DATA = {
-    reportlab: {
-        code: "FEB_2026_2", // Current coupon code
-        baseUrl: "https://www.udemy.com/course/python-reportlab-from-beginner-to-winner/",
-        referralCode: "3B927E883D2E868CF221"
-    },
-    pymupdf: {
-        code: "DFB6B5FA2A62894CE77F", // Current coupon code
-        baseUrl: "https://www.udemy.com/course/python-pdf-handling-from-beginner-to-winner/",
-        referralCode: "E7B71DCA8314B0BAC4BD"
-    }
-};
 
-function renderButtons() {
-    for (const [id, course] of Object.entries(COURSES_DATA)) {
-        const container = document.getElementById(`btn-${id}`);
-        if (!container) continue;
 
-        // Logic: If code exists, build coupon link. Else, build referral link.
-        const finalLink = course.code 
-            ? `${course.baseUrl}?couponCode=${course.code}` 
-            : `${course.baseUrl}?referralCode=${course.referralCode}`;
-
-        if (course.code) {
-            container.innerHTML = `
-                <div class="coupon-area">
-                    <span class="coupon-label">Special Offer Active!</span>
-                    <a href="${finalLink}" target="_blank" class="cta-udemy promo">
-                        Enroll with Discount (Code: ${course.code})
-                    </a>
-                </div>`;
-        } else {
-            container.innerHTML = `
-                <a href="${finalLink}" target="_blank" class="cta-udemy">
-                    Enroll on Udemy
-                </a>`;
-        }
-    }
-}
-
-document.addEventListener("DOMContentLoaded", renderButtons);
+// document.addEventListener("DOMContentLoaded", renderButtons);
 </script>
