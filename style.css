@@ -151,7 +151,7 @@ footer {
 .card-image {
     overflow: hidden;
     border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    /* box-shadow: 0 2px 8px rgba(0,0,0,0.05); */
     width: 40%; 
     margin: 0 auto;
     display: flex;
