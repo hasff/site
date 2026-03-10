@@ -190,12 +190,23 @@ footer {
     padding: 5px 10px;
     transition: background 0.3s, border-radius 0.3s;
 }
-
 .view-link:hover {
     background: #eff6ff;
     border-radius: 4px;
     text-decoration: underline;
 }
+
+.view-link-img {
+    background: #e5e7eb;
+    padding: 2px;
+    transition: background 0.3s, border-radius 0.3s;
+}
+.view-link-img:hover {
+    background: #b4ccef;
+    border-radius: 4px;
+    text-decoration: underline;
+}
+
 
 .separator {
     color: #d1d5db;
