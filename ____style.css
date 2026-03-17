@@ -202,8 +202,7 @@ footer {
     transition: background 0.3s, border-radius 0.3s;
 }
 .view-link-img:hover {
-    /* background: #b4ccef; */
-    background: #2563eb;
+    background: #b4ccef;
     border-radius: 4px;
     text-decoration: underline;
 }
@@ -305,11 +304,13 @@ footer {
     letter-spacing: 1px;
 }
 
+/* O Botão quando é promoção */
 .cta-udemy.promo {
     background: linear-gradient(135deg, #a435f0 0%, #e91e63 100%);
     border: none;
     animation: pulse 2s infinite;
 }
+
 .cta-udemy.promo:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
@@ -322,7 +323,7 @@ footer {
 }
 
 html {
-    scroll-padding-top: 80px; 
+    scroll-padding-top: 80px;
 }
 
 /* Case Study Card */
@@ -384,29 +385,12 @@ html {
     margin-bottom: 0.75rem;
 }
 
-.case-study-step-image {
-    height: 420px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    border: 1px solid #e5e7eb;
-    overflow: hidden;
-    background: #f9fafb;
-}
-
-.case-study-step-image img {
-    width: 100%;
-    border-radius: 6px;
-    display: block;
-}
-
-/* .case-study-step img {
+.case-study-step img {
     width: 100%;
     border-radius: 6px;
     border: 1px solid #e5e7eb;
     display: block;
-} */
+}
 
 .step-label {
     font-weight: 700;
@@ -430,19 +414,8 @@ html {
 }
 
 @media (max-width: 768px) {
-    .case-study-steps {
-        flex-direction: column;
-        align-items: center;
-    }
- 
-    .case-study-step {
-        width: 100%;
-        max-width: 100%;
-    }
- 
     .case-study-arrow {
         transform: rotate(90deg);
         padding-bottom: 0;
-        align-self: center;
     }
 }
