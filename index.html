@@ -255,6 +255,65 @@
                     using openpyxl. No hardcoded coordinates — the script adapts to the 
                     document layout automatically.                    
                 </p>
+            </div> 
+            
+            <!-- Case Study: Handwritten OCR -->
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <h3>Handwritten OCR — Export to PDF, Excel and Word</h3>
+                    <p>A real photo taken with a mobile phone, processed entirely with Python. Image orientation is corrected automatically before sending to Google Gemini.</p>
+                </div>
+                <div class="case-study-steps">
+                    <div class="case-study-step">
+                        <div class="step-badge">01</div>
+                        <a href="assets/imgs/ocr/handwrite.jpeg" target="_blank" class="view-link-img">
+                            <div class="case-study-step-image">
+                                <img src="assets/imgs/ocr/handwrite.jpeg" alt="Handwritten checklist photo">
+                            </div>
+                        </a>
+                        <p class="step-label">Handwritten Photo</p>
+                        <p class="step-desc">A real photo taken with a mobile phone — imperfect, rotated, cursive handwriting.</p>
+                    </div>
+                    <div class="case-study-arrow">→</div>
+                    <div class="case-study-step">
+                        <div class="step-badge">02</div>
+                        <a href="assets/imgs/ocr/preview_pdf.jpg" target="_blank" class="view-link-img">
+                            <div class="case-study-step-image">
+                                <img src="assets/imgs/ocr/preview_pdf.jpg" alt="Generated PDF report">
+                            </div>
+                        </a>
+                        <p class="step-label">PDF Output</p>
+                        <p class="step-desc">Printable report with title, styled table and footnote, generated with ReportLab.</p>
+                    </div>
+                    <div class="case-study-arrow">→</div>
+                    <div class="case-study-step">
+                        <div class="step-badge">03</div>
+                        <a href="assets/imgs/ocr/preview_excel.jpg" target="_blank" class="view-link-img">
+                            <div class="case-study-step-image">
+                                <img src="assets/imgs/ocr/preview_excel.jpg" alt="Generated Excel report">
+                            </div>
+                        </a>
+                        <p class="step-label">Excel Output</p>
+                        <p class="step-desc">Formatted workbook with frozen header, alternating rows and auto-sized columns.</p>
+                    </div>
+                    <div class="case-study-arrow">→</div>                    
+                    <div class="case-study-step">
+                        <div class="step-badge">04</div>
+                        <a href="assets/imgs/ocr/preview_word.jpg" target="_blank" class="view-link-img">
+                            <div class="case-study-step-image">
+                                <img src="assets/imgs/ocr/preview_word.jpg" alt="Generated Word report">
+                            </div>
+                        </a>
+                        <p class="step-label">Word Output</p>
+                        <p class="step-desc">Editable .docx file with matching styles, ready to share or modify.</p>
+                    </div>
+                </div>
+                <div class="card-links">
+                    <a href="https://github.com/hasff/python-handwritten-ocr-document-generator" target="_blank" class="view-link" aria-label="Handwritten OCR: View Code">View Code</a>
+                </div>
+                <p style="font-size: 0.82rem; color: #9ca3af; margin-top: 1rem; line-height: 1.6;">
+                    This pipeline detects and corrects EXIF image orientation automatically, sends the image to Google Gemini, and parses the structured response into PDF, Excel and Word — no hardcoded templates, no manual data entry. Tested against EasyOCR, which failed on cursive handwriting with confidence scores below 10%.
+                </p>
             </div>            
         </section>
 
@@ -373,12 +432,12 @@
         // --- CONFIGURATION: Only update the 'code' variable ---
         const COURSES_DATA = {
             reportlab: {
-                code: "MAR_13_26", // Current coupon code
+                code: "MAR_20_26", // Current coupon code
                 baseUrl: "https://www.udemy.com/course/python-reportlab-from-beginner-to-winner/",
                 referralCode: "3B927E883D2E868CF221"
             },
             pymupdf: {
-                code: "MAR_13_26", // Current coupon code
+                code: "MAR_20_26", // Current coupon code
                 baseUrl: "https://www.udemy.com/course/python-pdf-handling-from-beginner-to-winner/",
                 referralCode: "E7B71DCA8314B0BAC4BD"
             }
