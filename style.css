@@ -385,7 +385,7 @@ html {
 }
 
 .case-study-step-image {
-    height: 420px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -394,6 +394,10 @@ html {
     overflow: hidden;
     background: #f9fafb;
 }
+.fixed-H420 { height: 420px; }
+.fixed-H400 { height: 400px; }
+.fixed-H200 { height: 200px; }
+.fixed-H250 { height: 250px; }
 
 .case-study-step-image img {
     width: 100%;
