@@ -314,6 +314,66 @@
                 <p style="font-size: 0.82rem; color: #9ca3af; margin-top: 1rem; line-height: 1.6;">
                     This pipeline detects and corrects EXIF image orientation automatically, sends the image to Google Gemini, and parses the structured response into PDF, Excel and Word — no hardcoded templates, no manual data entry. Tested against EasyOCR, which failed on cursive handwriting with confidence scores below 10%.
                 </p>
+            </div>   
+            
+            <!-- Case Study: PDF Sensitive Data Redactor -->
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <h3>PDF Sensitive Data Redaction — Text, Images &amp; Metadata</h3>
+                    <p>A complete case study on what actually happens when you ask AI chatbots to redact a PDF — and why a specialised pipeline is needed to do it correctly.</p>
+                    <p style="margin-top: 0.5rem; font-style: italic; color: #6b7280;">"Can't I just ask ChatGPT to redact my PDF?" — Tested. Here's what happened.</p>
+                </div>
+                <div class="case-study-steps">
+                    <div class="case-study-step">
+                        <div class="step-badge">01</div>
+                        <a href="assets/imgs/redactor/false_redact_table.jpg" target="_blank" class="view-link-img">
+                            <div class="case-study-step-image">
+                                <img src="assets/imgs/redactor/false_redact_table.jpg" alt="False redact — text still selectable and copyable">
+                            </div>
+                        </a>
+                        <p class="step-label">The False Redact Trap</p>
+                        <p class="step-desc">Black boxes drawn over text — but the data is still there. Copy/paste extracts everything.</p>
+                    </div>
+                    <div class="case-study-arrow">→</div>
+                    <div class="case-study-step">
+                        <div class="step-badge">02</div>
+                        <a href="assets/imgs/redactor/true_redact.jpg" target="_blank" class="view-link-img">
+                            <div class="case-study-step-image">
+                                <img src="assets/imgs/redactor/true_redact.jpg" alt="True redact — sensitive text permanently removed from PDF structure">
+                            </div>
+                        </a>
+                        <p class="step-label">True Text Redaction</p>
+                        <p class="step-desc">Sensitive text permanently removed from the PDF structure. Only non-redacted content can be copied.</p>
+                    </div>
+                    <div class="case-study-arrow">→</div>
+                    <div class="case-study-step">
+                        <div class="step-badge">03</div>
+                        <a href="assets/imgs/redactor/redact_images.jpg" target="_blank" class="view-link-img">
+                            <div class="case-study-step-image">
+                                <img src="assets/imgs/redactor/redact_images.jpg" alt="Embedded images redacted using OCR — including handwritten signature">
+                            </div>
+                        </a>
+                        <p class="step-label">Image Redaction (OCR)</p>
+                        <p class="step-desc">Sensitive text inside embedded images located via OCR and permanently overwritten. Handwritten content redacted as a safe fallback.</p>
+                    </div>
+                    <div class="case-study-arrow">→</div>
+                    <div class="case-study-step">
+                        <div class="step-badge">04</div>
+                        <a href="assets/imgs/redactor/metadata_wiped.jpg" target="_blank" class="view-link-img">
+                            <div class="case-study-step-image">
+                                <img src="assets/imgs/redactor/metadata_wiped.jpg" alt="Document metadata wiped — author, title, keywords, creation date removed">
+                            </div>
+                        </a>
+                        <p class="step-label">Metadata Wiped</p>
+                        <p class="step-desc">Author, title, keywords, creation date and software fingerprint removed from the final file.</p>
+                    </div>
+                </div>
+                <div class="card-links">
+                    <a href="https://github.com/hasff/python-pdf-sensitive-data-redactor" target="_blank" class="view-link" aria-label="PDF Sensitive Data Redactor: View Code">View Code</a>
+                </div>
+                <p style="font-size: 0.82rem; color: #9ca3af; margin-top: 1rem; line-height: 1.6;">
+                    Four AI chatbots were tested with the same document and the same request. Gemini and Mistral refused to produce a PDF. Copilot returned the original file unchanged and claimed it had been fully redacted. ChatGPT made three attempts — the best result still left names visible, dropped words mid-sentence, and ignored images. This pipeline uses AI only for classification (Google Gemini) and specialised libraries for precision editing (PyMuPDF, EasyOCR) — each tool doing only what it is good at.
+                </p>
             </div>            
         </section>
 
