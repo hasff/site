@@ -173,7 +173,9 @@
                     <span style="font-size:0.95rem; font-weight:600; color:#4b5563;">✦ Available for freelance</span>
                 </div>                
             </div>
-            <div class="grid">            
+
+            <div class="grid">     
+              <!-- Automated Invoice Generation        -->
               <div class="card">
                 <div class="card-example-container">
                     <div class="card-title-description">
@@ -203,8 +205,9 @@
                 </p>                
               </div>  
 
+              <!-- Fillable PDF Form Generator -->
               <div class="card">
-              <div class="card-example-container">
+                <div class="card-example-container">
                   <div class="card-title-description">
                   <h3>Fillable PDF Form Generator</h3>
                   <p>
@@ -218,19 +221,49 @@
                       <img src="assets/imgs/fillable/preview1.jpg" alt="Fillable PDF patient admission form generated with Python ReportLab">
                   </a>
                   </div>
+                </div>
+                <div class="card-links">
+                  <a href="assets/pdfs/patient_admission_form.pdf" target="_blank" class="view-link" aria-label="Python Fillable PDF Form Generator: View PDF from Button">View PDF</a>
+                  <span class="separator">|</span> 
+                  <a href="https://github.com/hasff/python-fillable-pdf-form-generator" target="_blank" class="view-link" aria-label="Python Fillable PDF Form Generator: View Code">View Code</a>
+                </div>
+                <p style="font-size: 0.82rem; color: #9ca3af; margin-top: 1rem; line-height: 1.6;">
+                    This example demonstrates programmatic AcroForm generation using ReportLab in Python.
+                    Features include coordinate-based layout, named text fields, toggle checkboxes, a signature
+                    area, and branded section headers — all produced from a single script with no external tools
+                    or manual steps.
+                </p>
+              </div>   
+              
+              <!-- Fillable PDF Form Extractor -->
+              <div class="card">
+                <div class="card-example-container">
+                  <div class="card-title-description">
+                  <h3>Fillable PDF Form Extractor</h3>
+                  <p>
+                      The other half of the cycle. Reads a filled AcroForm PDF and extracts
+                      all field data programmatically — grouped by section, exported to Excel.
+                      No field name knowledge required.
+                  </p>
+                  </div>
+                  <div class="card-image">
+                  <a href="assets/imgs/fillable/extractor/patient_admission_form_john_doe.png" target="_blank" class="view-link-img" aria-label="Python Fillable PDF Form Extractor: View filled form from Image">
+                      <img src="assets/imgs/fillable/extractor/patient_admission_form_john_doe.png" alt="Filled AcroForm PDF patient admission form ready for extraction">
+                  </a>
+                  </div>
+                </div>
+                <div class="card-links">
+                  <a href="https://github.com/hasff/python-fillable-pdf-form-extractor" target="_blank" class="view-link" aria-label="Python Fillable PDF Form Extractor: View Code">View Code</a>
+                </div>
+                <p style="font-size: 0.82rem; color: #9ca3af; margin-top: 1rem; line-height: 1.6;">
+                    Extracts AcroForm field data by spatial region — not by field name. Works on
+                    third-party forms where the internal structure is unknown. Includes an inspection
+                    mode to calibrate section boundaries visually before running extraction.
+                    Output: a formatted Excel file with all fields grouped by section.
+                </p>
               </div>
-              <div class="card-links">
-                <a href="assets/pdfs/patient_admission_form.pdf" target="_blank" class="view-link" aria-label="Python Fillable PDF Form Generator: View PDF from Button">View PDF</a>
-                <span class="separator">|</span> 
-                <a href="https://github.com/hasff/python-fillable-pdf-form-generator" target="_blank" class="view-link" aria-label="Python Fillable PDF Form Generator: View Code">View Code</a>
-              </div>
-              <p style="font-size: 0.82rem; color: #9ca3af; margin-top: 1rem; line-height: 1.6;">
-                  This example demonstrates programmatic AcroForm generation using ReportLab in Python.
-                  Features include coordinate-based layout, named text fields, toggle checkboxes, a signature
-                  area, and branded section headers — all produced from a single script with no external tools
-                  or manual steps.
-              </p>
-              </div>              
+
+
             </div>    
             
             <!-- Case Study: PDF to Excel -->
@@ -403,7 +436,56 @@
                 <p style="font-size: 0.82rem; color: #9ca3af; margin-top: 1rem; line-height: 1.6;">
                     Four AI chatbots were tested with the same document and the same request. Gemini and Mistral refused to produce a PDF. Copilot returned the original file unchanged and claimed it had been fully redacted. ChatGPT made three attempts — the best result still left names visible, dropped words mid-sentence, and ignored images. This pipeline uses AI only for classification (Google Gemini) and specialised libraries for precision editing (PyMuPDF, EasyOCR) — each tool doing only what it is good at.
                 </p>
+            </div>   
+            
+            <!-- Case Study: Fillable PDF Form Extractor -->
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <h3>AcroForm Data Extraction — Filled PDF to Excel</h3>
+                    <p>A patient admission form filled in a standard PDF reader, processed entirely with Python. Fields are located by position — not by name — so the approach works on any AcroForm, including forms from third parties.</p>
+                </div>
+                <div class="case-study-steps">
+                    <div class="case-study-step">
+                        <div class="step-badge">01</div>
+                        <a href="assets/imgs/fillable/extractor/patient_admission_form_john_doe.png" target="_blank" class="view-link-img">
+                            <div class="case-study-step-image fixed-H420">
+                                <img src="assets/imgs/fillable/extractor/patient_admission_form_john_doe.png" alt="Filled AcroForm PDF patient admission form">
+                            </div>
+                        </a>
+                        <p class="step-label">Filled Form</p>
+                        <p class="step-desc">A patient admission AcroForm filled in any standard PDF reader — no special software.</p>
+                    </div>
+                    <div class="case-study-arrow">→</div>
+                    <div class="case-study-step">
+                        <div class="step-badge">02</div>
+                        <a href="assets/imgs/fillable/extractor/patient_admission_form_john_doe_debug.png" target="_blank" class="view-link-img">
+                            <div class="case-study-step-image fixed-H420">
+                                <img src="assets/imgs/fillable/extractor/patient_admission_form_john_doe_debug.png" alt="Section areas overlaid on the form for calibration">
+                            </div>
+                        </a>
+                        <p class="step-label">Spatial Calibration</p>
+                        <p class="step-desc">Section boundaries defined as percentages of page height and visualised before extraction runs.</p>
+                    </div>
+                    <div class="case-study-arrow">→</div>
+                    <div class="case-study-step">
+                        <div class="step-badge">03</div>
+                        <a href="assets/imgs/fillable/extractor/patient_admission_form_john_doe_excel.jpg" target="_blank" class="view-link-img">
+                            <div class="case-study-step-image fixed-H420">
+                                <img src="assets/imgs/fillable/extractor/patient_admission_form_john_doe_excel.jpg" alt="Extracted form data in a formatted Excel file">
+                            </div>
+                        </a>
+                        <p class="step-label">Extracted to Excel</p>
+                        <p class="step-desc">All 35 fields written to a formatted workbook — grouped by section, no manual copying.</p>
+                    </div>
+                </div>
+                <div class="card-links">
+                    <a href="https://github.com/hasff/python-fillable-pdf-form-extractor" target="_blank" class="view-link" aria-label="Fillable PDF Form Extractor: View Code">View Code</a>
+                </div>
+                <p style="font-size: 0.82rem; color: #9ca3af; margin-top: 1rem; line-height: 1.6;">
+                    Fields are matched to sections by spatial intersection — if a widget's bounding rectangle falls inside a defined region, it belongs to that section. This makes the pipeline robust to third-party forms where field names are unknown. An inspection mode renders the section areas onto a debug PDF for visual confirmation before any data is extracted.
+                </p>
             </div>            
+
         </section>
 
         <section id="courses" class="section gray-bg">
