@@ -485,6 +485,59 @@
                     Fields are matched to sections by spatial intersection — if a widget's bounding rectangle falls inside a defined region, it belongs to that section. This makes the pipeline robust to third-party forms where field names are unknown. An inspection mode renders the section areas onto a debug PDF for visual confirmation before any data is extracted.
                 </p>
             </div>            
+            
+            <!-- Case Study: AT&T Mobility PDF Extractor -->
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <h3>Python AT&T Mobility PDF Extractor</h3>
+                    <p>This project extracts and processes AT&T Mobility usage data from PDF statements,
+                        allowing for automated analysis and reporting. The script parses detailed call records,
+                        including timestamps, cell locations, and call types, and exporting to CSV.
+                    </p>                      
+                </div>
+                <div class="case-study-steps">
+                    <div class="case-study-step">
+                        <div class="step-badge">01</div>
+                        <a href="assets/imgs/att/att_original.png" target="_blank" class="view-link-img">
+                            <div class="case-study-step-image fixed-H420">
+                                <img src="assets/imgs/att/att_original.png" alt="Original AT&T Mobility PDF statement with call records">
+                            </div>
+                        </a>
+                        <p class="step-label">Source PDF Statement</p>
+                        <p class="step-desc">A sample page from an AT&T Mobility usage PDF statement, showing detailed call records.</p>                        
+                    </div>
+                    <div class="case-study-arrow">→</div>
+                    <div class="case-study-step">
+                        <div class="step-badge">02</div>
+                        <a href="assets/imgs/att/sections_inspection.png" target="_blank" class="view-link-img">
+                            <div class="case-study-step-image fixed-H420">
+                                <img src="assets/imgs/att/sections_inspection.png" alt="Section areas overlaid on the PDF for calibration">
+                            </div>
+                        </a>
+                        <p class="step-label">Spatial Calibration</p>
+                        <p class="step-desc">Section boundaries defined as percentages of page height and visualised before extraction runs.</p>
+                    </div>
+                    <div class="case-study-arrow">→</div>
+                    <div class="case-study-step">
+                        <div class="step-badge">03</div>
+                        <a href="assets/imgs/att/output_csv_example.jpg" target="_blank" class="view-link-img">
+                            <div class="case-study-step-image fixed-H420">
+                                <img src="assets/imgs/att/output_csv_example.jpg" alt="Extracted data in a CSV file with call records structured in rows and columns">
+                            </div>
+                        </a>
+                        <p class="step-label">Extracted Data</p>
+                        <p class="step-desc">A preview of the extracted and structured data, ready for analysis or integration with other systems.</p>                        
+                    </div>
+                </div>
+                <div class="card-links">
+                    <a href="https://github.com/hasff/python-att-mobility-pdf-extractor" target="_blank" class="view-link" aria-label="Python AT&T Mobility PDF Extractor: View Code">View Code</a>
+                </div>
+                <p style="font-size: 0.82rem; color: #9ca3af; margin-top: 1rem; line-height: 1.6;">
+                    The script uses libraries like PyMuPDF for PDF parsing and pdfplumber for data manipulation,
+                    ensuring high performance and reliability. It is particularly useful for telecom audits,
+                    cost analysis, or integration with internal reporting tools.                    
+                </p>
+            </div>            
 
         </section>
 
